@@ -1,0 +1,19 @@
+﻿@using StudentManage.Models;
+@model List<ClassRoom>
+
+@Html.ActionLink("Все студенты", "ShowAllStudent", null, htmlAttributes: new { @class = "btn btn-primary mr-10", @type = "button"})
+@Html.ActionLink("OrderByAscId", "OrderByAscId", null, htmlAttributes: new { @class = "btn btn-primary   mr-2", @type = "button" })
+@Html.ActionLink("OrderByDscId", "OrderByDsccId", null, htmlAttributes: new { @class = "btn btn-primary  mr-2", @type = "button" })
+@Html.ActionLink("IdMax", "IdMax", null, htmlAttributes: new { @class = "btn btn-primary  mr-2", @type = "button" })
+@Html.ActionLink("IdMin", "IdMin", null, htmlAttributes: new { @class = "btn btn-primary", @type = "button" })
+
+<br />
+<br />
+<br />
+@foreach (var item in Model) {
+    <p> Название класса: @item.NameCr</p>
+    @Html.ActionLink("Удалить", "DeleteClassRoom", new { id = item.IdCr }, htmlAttributes: new { @class = "btn btn-primary mr-2", @type = "button" })
+    @Html.ActionLink("Добавить студента", "AddStudent", new { id = item.IdCr }, htmlAttributes: new { @class = "btn btn-primary mr-2", @type = "button" })
+    @Html.ActionLink("Посмотреть студентов", "ListStudent", new { id = item.IdCr }, htmlAttributes: new { @class = "btn btn-primary", @type = "button" })
+    <hr />
+}

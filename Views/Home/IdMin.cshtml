@@ -1,0 +1,64 @@
+﻿@model IEnumerable<StudentManage.Models.Student>
+
+@{
+    ViewBag.Title = "IdMin";
+    Layout = "~/Views/Layout/UsingLayout.cshtml";
+}
+
+<h2>IdMin</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdSt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameSt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthdateSt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddressSt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreateDateSt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCr)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthdateSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDateSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCr)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

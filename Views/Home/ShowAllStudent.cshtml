@@ -1,0 +1,74 @@
+﻿@model IEnumerable<StudentManage.Models.Student>
+
+@{
+    ViewBag.Title = "ShowAllStudent";
+    Layout = "~/Views/Layout/UsingLayout.cshtml";
+}
+
+<h2>ShowAllStudent</h2>
+
+<p>
+    @using (Html.BeginForm("SearchByName","Home", FormMethod.Post)) { 
+    <label> Поиск по имени</label>
+    <div class="float-left">
+        @Html.TextBox("SearchValue","", htmlAttributes: new { @class="form-control", @placeholder="Введите"})
+    </div>
+    <div class="float-left">
+        <button type="submit" class="btn btn-primary"> Search</button>
+    </div>
+    }
+
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Id Студента")
+        </th>
+        <th>
+            @Html.DisplayName("ФИО")
+        </th>
+        <th>
+            @Html.DisplayName("Дата рождения")
+        </th>
+        <th>
+            @Html.DisplayName("Дата регистрации")
+        </th>
+        <th>
+            @Html.DisplayName("Номер класса")
+        </th>
+        <th>
+            @Html.DisplayName("Id Студента")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BirthdateSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreateDateSt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCr)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id= item.IdSt }) |
+            @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+            @Html.ActionLink("Delete", "DeleteStudent", new { id = item.IdSt })
+        </td>
+    </tr>
+}
+
+</table>

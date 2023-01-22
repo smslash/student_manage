@@ -1,0 +1,71 @@
+﻿@model StudentManage.Models.Student
+
+@{
+  ViewBag.Title = "AddStudent";
+  Layout = "~/Views/Layout/UsingLayout.cshtml";
+  var datenow = DateTime.Now;
+}
+
+<h2>Добавить студента</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Студент</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.Label("Имя: ", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NameSt, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NameSt, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Дата рождения: ", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.EditorFor(model => model.BirthdateSt, new { htmlAttributes = new { @class = "form-control" } })*@
+            @*@Html.ValidationMessageFor(model => model.BirthdateSt, "", new { @class = "text-danger" })*@
+            <input type="date" name="BirthdateSt" />
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+
+        @Html.Label("Адрес: ", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.AddressSt, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AddressSt, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="form-group" style="display:none">
+        @Html.Label("Адрес: ", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="type" name="CreateDateSt" value="@datenow" />
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Адрес: ", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="text" name="IdCr" value="@ViewBag.Test" />
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

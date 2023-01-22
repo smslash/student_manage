@@ -1,0 +1,20 @@
+﻿
+@{
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Layout/UsingLayout.cshtml";
+}
+
+<h2>Список кабинетов</h2>
+<div>
+
+    @Html.ActionLink("Добавить кабинет", "InsertClassRoom", null, htmlAttributes: new { @class = "btn btn-primary" })
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+<div>
+    @Html.Action("PrintClassRoom")
+</div>
+
